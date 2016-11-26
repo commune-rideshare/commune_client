@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000">
+
+  <!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png"> -->
+
+  <title>COMMUNE SIMULATION</title>
+
+  <!-- <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pwr_studio" />
+  <meta name="twitter:creator" content="@pwr_studio" />
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:description" content="" /> -->
+
+  <link href='style.css' rel="stylesheet" type="text/css">
+  <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+  <div id='app'>
+
+    <header>
+      commune ownership-share simulator
+    </header>
+
+    <div id='ownership' class='ownership'>
+      <div class='own-drivers'>Driver ownership: <span id='driver-ownership'></span></div>
+      <div class='own-riders'>Rider ownership: <span id='rider-ownership'></span></div>
+      <div class='own-bar'>
+        <div id='own-inner' class='own-inner'></div>
+      </div>
+    </div>
+
+    <div id='map' class='map'></div>
+
+    <div id='log' class='log'></div>
+
+    <div class='groups'>
+
+      <div id='drivers' class='drivers info-box'>
+        <div>DRIVERS</div>
+        <table id='drivers-table'>
+          <th>Name</th>
+          <th>Rides</th>
+          <th>Shares</th>
+          <th>%</th>
+          <tbody v-for="driver in drivers">
+            <td>{{ driver.name }}</td>
+            <td>{{ driver.rides }}</td>
+            <td>{{ driver.shares }}</td>
+            <td>{{ driver.percentage }}</td>
+          </tbody>
+        </table>
+      </div>
+
+      <div id='riders' class='riders info-box'>
+        <div>PASSENGERS</div>
+        <table id='drivers-table'>
+          <th>Name</th>
+          <th>Rides</th>
+          <th>Shares</th>
+          <th>%</th>
+          <tbody v-for="rider in riders">
+            <td>{{ rider.name }}</td>
+            <td>{{ rider.rides }}</td>
+            <td>{{ rider.shares }}</td>
+            <td>{{ rider.percentage }}</td>
+          </tbody>
+        </table>
+      </div>
+
+      <div id='rides' class='rides info-box'>
+        <div>RIDES</div>
+        <table id='rides-table'>
+          <th>ID</th>
+          <th>Distance</th>
+          <th>Shares</th>
+          <tbody v-for="ride in rides">
+            <td>{{ ride.guid }}</td>
+            <td>{{ ride.distance }}</td>
+            <td>{{ ride.shares }}</td>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class='bar'>
+      <div class='marquee'>marquee</div>
+      <div class='time'>time</div>
+    </div>
+
+
+  </div>
+
+  <script src='app.min.js'></script>
+
+</body>
+
+</html>
